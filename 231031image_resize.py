@@ -10,3 +10,7 @@ if img_BGR is None:
     sys.exit()
 
 print(img_BGR.shape)
+
+cv2.imshow('lenna', img_BGR)
+key = cv2.waitKey(0)
+cv2.destroyWindow('lenna')
