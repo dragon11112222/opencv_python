@@ -9,6 +9,9 @@ if imgBGR is None:
     print('Load is Fail!')
     sys.exit()
 
+imgCanny = cv2.Canny(imgGray, 200, 180)
+
 cv2.imshow('org', imgGray)
+cv2.imshow('canny', imgCanny)
 cv2.waitKey()
 cv2.destroyAllWindows()
