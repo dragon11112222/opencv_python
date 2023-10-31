@@ -14,6 +14,8 @@ imgResize2 = cv2.resize(img_BGR, dsize = (0, 0), fx = 0.7, fy = 0.4)
 
 print(img_BGR.shape)
 
+cv2.imwrite('./data/1280_720.jpg', imgResize, [cv2.IMWRITE_JPEG_QUALITY, 95])
+
 cv2.imshow('lenna', img_BGR)
 cv2.imshow('resize', imgResize)
 cv2.imshow('resize2', imgResize2)
