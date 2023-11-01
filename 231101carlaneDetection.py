@@ -14,7 +14,7 @@ low_thrshld = 50
 high_thrshld = 400
 img_gray_blur_canny = cv2.Canny(img_gray_blur, low_thrshld, high_thrshld)
 
-mask = np.zeros_like(img)
+mask = np.zeros_like(img_gray_blur_canny)
 print(img.shape)  ## left top 기준 (height, width, filter)
 point1 = (100, img.shape[0])
 point2 = (450, 320)
@@ -24,12 +24,16 @@ vertices = np.array([[point1, point2, point3, point4]], dtype=np.int32)
 mask_color = (255, 255, 255)
 cv2.fillPoly(mask, vertices, mask_color)
 
+print(img_gray_blur_canny.shape)
+print(mask.shape)
+img_masked = cv2.bitwise_and(img_gray_blur_canny, mask)
+
 cv2.imshow('result', img)
 cv2.imshow('result2', img_gray)
 cv2.imshow('result3', img_gray_blur)
 cv2.imshow('result4', img_gray_blur_canny)
 cv2.imshow('result5', mask)
-
+cv2.imshow('result6', img_masked)
 
 cv2.waitKey(0)
 cv2.destroyAllWindows()
