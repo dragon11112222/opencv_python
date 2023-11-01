@@ -9,3 +9,9 @@ if src is None:
     sys.exit()
 
 src_hsv = cv2.cvtColor(src, cv2.COLOR_BGR2HSV)
+
+cv2.imshow('src', src)
+
+cv2.waitKey()
+
+cv2.destroyAllWindows()
