@@ -11,13 +11,13 @@ if img is None:
     sys.exit()
 
 # img_gray = cv2.cvtColor(img, cv2.COLOR_BGR2GRAY)
-img_gray = cv2.imread(filePath, cv2.IMREAD_GRAYSCALE)
+# img_gray = cv2.imread(filePath, cv2.IMREAD_GRAYSCALE)
 
-img_gray_blur = cv2.GaussianBlur(img_gray, (5, 5), 0)
+# img_gray_blur = cv2.GaussianBlur(img_gray, (5, 5), 0)
 
-low_thrshld = 50
-high_thrshld = 400
-img_gray_blur_canny = cv2.Canny(img_gray_blur, low_thrshld, high_thrshld)
+# low_thrshld = 50
+# high_thrshld = 400
+# img_gray_blur_canny = cv2.Canny(img_gray_blur, low_thrshld, high_thrshld)
 
 # 흰색 면을 걸러내려면 GaussianBlur & Canny 가지고는 안 됨! 색깔로 걸러내 줘야 함.
 img_hsv = cv2.cvtColor(img, cv2.COLOR_BGR2HSV)
@@ -54,7 +54,7 @@ img_masked = cv2.bitwise_and(img_white, mask)
 
 # img_masked를 새로운 mask 삼아 기존 이미지에서 차선만 필터링
 
-# cv2.imshow('result', img)
+cv2.imshow('result', img)
 # cv2.imshow('result2', img_gray)
 # cv2.imshow('result3', img_gray_blur)
 # cv2.imshow('result4', img_gray_blur_canny)
