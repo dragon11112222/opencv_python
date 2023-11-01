@@ -1,9 +1,14 @@
 import cv2
+import sys
 import numpy as np
 
 
 filePath = 'data/solidWhiteCurve.jpg'
 img = cv2.imread(filePath)
+
+if img is None:
+    print('Image load failed!')
+    sys.exit()
 
 # img_gray = cv2.cvtColor(img, cv2.COLOR_BGR2GRAY)
 img_gray = cv2.imread(filePath, cv2.IMREAD_GRAYSCALE)
@@ -27,6 +32,8 @@ cv2.fillPoly(mask, vertices, mask_color)
 print(img_gray_blur_canny.shape)
 print(mask.shape)
 img_masked = cv2.bitwise_and(img_gray_blur_canny, mask)
+
+# img_masked를 새로운 mask 삼아 기존 이미지에서 차선만 필터링
 
 cv2.imshow('result', img)
 cv2.imshow('result2', img_gray)
