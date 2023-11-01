@@ -21,13 +21,17 @@ def cartoon_filter(img):
 
     return dst
 
-
+def pencil_sketch(img):
+    gray = cv2.cvtColor(img, cv2.COLOR_BGR2GRAY)
+    blr = cv2.GaussianBlur(gray, (0, 0), 3)
+    dst = cv2.divide(gray, blr, scale=255)
+    return dst
 
 if not cap.isOpened():
     print('video open failed!')
     sys.exit()
 
-cam_mode = 1
+cam_mode = 2
 
 while True:
     ret, frame = cap.read()
@@ -37,7 +41,9 @@ while True:
 
     if cam_mode == 1:
         frame = cartoon_filter(frame)
-
+    elif cam_mode == 2:
+        frame = pencil_sketch(frame)
+        frame = cv2.cvtColor(frame, cv2.COLOR_GRAY2BGR)
 
     cv2.imshow('frame', frame)
     key = cv2.waitKey(1)
