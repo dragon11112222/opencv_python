@@ -31,7 +31,7 @@ if not cap.isOpened():
     print('video open failed!')
     sys.exit()
 
-cam_mode = 2
+cam_mode = 0
 
 while True:
     ret, frame = cap.read()
@@ -48,7 +48,12 @@ while True:
     cv2.imshow('frame', frame)
     key = cv2.waitKey(1)
 
-
+    if key == 27:
+        break
+    elif key == ord(' '):
+        cam_mode += 1
+        if cam_mode == 3:
+            cam_mode = 0
 
 
 cap.release()
