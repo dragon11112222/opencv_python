@@ -1,5 +1,5 @@
 # opencv_python
-- Python 3.11.5
+- Python 3.8.18
   - numpy               1.24.4
   - opencv-python       4.8.1.78
   - pip                 23.3
