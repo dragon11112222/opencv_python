@@ -1,7 +1,8 @@
 import cv2
 # import pafy
 import yt_dlp
-import os
+# 참조 : https://www.codeit.kr/community/questions/UXVlc3Rpb246NjQ5MjQ4ZTc3ZWQwNzAzMGIxNDVjNjNh
+# import os
 
 url = 'https://www.youtube.com/watch?v=ipyzW38sHg0'
 # video = pafy.new(url)
