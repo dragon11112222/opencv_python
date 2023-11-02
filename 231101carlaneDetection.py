@@ -52,7 +52,10 @@ print(img_white.shape)
 print(mask.shape)
 img_masked = cv2.bitwise_and(img_white, mask)
 
+
 # img_masked를 새로운 mask 삼아 기존 이미지에서 차선만 필터링
+# compose = cv2.imread(filePath, cv2.IMREAD_COLOR)
+cv2.copyTo(img, img_masked, img_hsv)
 
 cv2.imshow('result', img)
 # cv2.imshow('result2', img_gray)
@@ -62,6 +65,7 @@ cv2.imshow('hsv', img_hsv)
 cv2.imshow('hsv_white', img_white)
 cv2.imshow('result5', mask)
 cv2.imshow('result6', img_masked)
+# cv2.imshow('compose', compose)
 
 cv2.waitKey(0)
 cv2.destroyAllWindows()
